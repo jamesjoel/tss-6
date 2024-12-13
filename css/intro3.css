@@ -1,0 +1,21 @@
+body{
+    background-color: gray;
+}
+.para{
+    background-color: #033205;
+    font-size: 20px;
+    color: #ffffff;
+}
+.para > b{
+    background-color: red;
+}
+
+
+#box{
+    background-color: #fff;
+    font-size: 30px;
+}
+
+#box > b{
+    background-color: yellow;
+}

@@ -1,0 +1,37 @@
+body{
+    background-color: #ccc;
+}
+.para > b{
+    background-color: red;
+}
+.para ~ h1{
+    color : green;
+}
+
+.mylink{
+    background-color: #fff;
+    color : green;
+    font-size: 25px;
+}
+.mylink:hover{
+    background-color: #601ACD;
+    color: #fff;
+}
+/* .mylink:visited{
+    background-color: blue;
+} */
+.mylink:active{
+    background-color: red;
+}
+
+
+
+
+.mytxt{
+    background-color: red;
+}
+.mytxt:hover{
+    background-color: pink;
+    font-size: 40px;
+    color: #fff;
+}
