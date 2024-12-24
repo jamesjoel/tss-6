@@ -1,0 +1,40 @@
+.bg-purple{
+    background-color: #120F64;
+}
+.bg-purple-light{
+    background-color: #1F186C;
+}
+.text-white{
+    color: #fff;
+}
+.logo{
+    font-size: 25px;
+}
+#menu .nav .nav-item .nav-link:hover{
+    border-bottom : 1px solid #1ACC8D;
+}
+.hero-slider{
+    min-height: 500px;
+}
+.slider-right{
+    height: 500px;
+    
+    background-image: url(../images/hero-img.png);
+    background-size: 100% 100%;
+}
+.text-high{
+    border-bottom: 3px solid #1ACC8D;
+}
+.btn-green{
+    background-color: #1ACC8D;
+    border-radius: 20px;
+}
+.btn-green:hover{
+    background-color: #15a472;
+}
+.text-green{
+    color: #1ACC8D;
+}
+.text-blue{
+    color: #120F64;
+}
