@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./output.css" rel="stylesheet">
+</head>
+<body>
+  <div class="w-full bg-gray-800">
+    <div class="container text-white mx-auto flex justify-between items-center">
+        <div>
+            <img class="w-16 md:w-20" src="../assets/images/logo.png" />
+        </div>
+        <div class="my-nav absolute md:static min-h-[30vh] md:min-h-fit w-full  md:w-[75%] top-[-100%] bg-gray-800">
+            <ul class="flex justify-center flex-col gap-7 md:flex-row ">
+                <li>
+                    <a class="px-10 block md:inline-block py-3 text-lg hover:bg-gray-400 rounded-md" href="">Home</a>
+                </li>
+                <li>
+                    <a class="px-10 block md:inline-block py-3 text-lg hover:bg-gray-400 rounded-md" href="">About</a>
+                </li>
+                <li>
+                    <a class="px-10 block md:inline-block py-3 text-lg hover:bg-gray-400 rounded-md" href="">Contact</a>
+                </li>
+                <li>
+                    <a class="px-10 block md:inline-block py-3 text-lg hover:bg-gray-400 rounded-md" href="">Contact</a>
+                </li>
+                
+            </ul>
+        </div>
+        <div class="flex items-center">
+            <button class="bg-orange-600 text-lg py-2 px-4 rounded-md hover:bg-orange-900">Sign-In</button>
+            <ion-icon onclick="toggleMenu(this)" class="text-3xl md:hidden" name="menu-outline"></ion-icon>
+            <!-- <ion-icon class="text-3xl" name="close-outline"></ion-icon> -->
+        </div>
+    </div>
+  </div>
+
+  <script>
+    let nav= document.querySelector(".my-nav")
+    function toggleMenu(e){
+        e.name = e.name=="menu-outline" ? "close-outline" : "menu-outline";
+        console.log(nav.classList)
+        nav.classList.toggle("top-[15vh]")
+    }
+  </script>
+
+
+
+
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
+
+
+<!-- 
+
+    var a = 10
+
+    var b = a == 10 ? "indore" : "bhopal"
+
+
+-->
+

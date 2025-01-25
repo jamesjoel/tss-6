@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "pdf-creator-node": "^2.3.5",
+    "reverse-string": "^0.0.6",
+    "rndm": "^1.2.0",
+    "unique-string": "^3.0.0"
+  }
+}
