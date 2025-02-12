@@ -10,4 +10,19 @@ let saveUser = async(req, res)=>{
     res.send({success:true});
 }
 
-export {fetchAllUser, saveUser}
+let fetchUserByCity = async(req, res)=>{
+    
+    let city = req.params.city;
+    let result = await User.find({city : city});
+    res.send(result);
+}
+
+
+let deleteById = async(req, res)=>{
+    console.log(req.params);
+}
+
+
+
+
+export {fetchAllUser, saveUser, fetchUserByCity, deleteById}
