@@ -1,8 +1,10 @@
 let express = require("express");
 let app = express();
+// require("dotenv").config();
 
 
 
+console.log(process.env.PORT)
 app.get("/", (req, res)=>{
     res.sendFile(__dirname+"/home.html");
 })
@@ -21,7 +23,7 @@ app.get("*", (req, res)=>{
 
 
 
-app.listen(5550);
+app.listen(3000);
 /*
 gst(10, 12, ()=>{
 

@@ -20,7 +20,7 @@ const Home = () => {
     <div>Home</div>
     <h1>{a}</h1>
     <h2>{b}</h2>
-    <button onkey onClick={demo1} onDoubleClick={demo2}>OK</button>
+    <button onClick={demo1} onDoubleClick={demo2}>OK</button>
     
     {/*    EVENT */}
     </>
