@@ -8,6 +8,7 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+<<<<<<< HEAD
 @-webkit-keyframes spinner-border {
   to {
     -webkit-transform: rotate(360deg);
@@ -50,6 +51,8 @@
   border-color: #060c22 !important;
 }
 
+=======
+>>>>>>> 94f0369d95c6937b891c32975b39038a48d30ab7
 
 body {
   background: #fff;
