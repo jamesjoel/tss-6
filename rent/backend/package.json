@@ -4,8 +4,8 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "dev" : "nodemon --env-file=.env.dev app.js",
-    "prod" : "nodemon --env-file=.env.prod app.js",
+    "dev": "nodemon --env-file=.env.dev app.js",
+    "prod": "nodemon --env-file=.env.prod app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -16,6 +16,7 @@
     "concurrently": "^9.1.2",
     "cors": "^2.8.5",
     "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.10.2",
     "sha1": "^1.1.1"
   }
