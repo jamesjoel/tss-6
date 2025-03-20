@@ -3,11 +3,13 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import Slider from './components/Slider'
 import AllRoutes from './routes/AllRoutes'
+import HeaderNew from './components/HeaderNew'
 
 const App = () => {
   return (
     <>
-        <Header />
+        {/* <Header /> */}
+        <HeaderNew />
         <Slider />
         <AllRoutes />
         <Footer />

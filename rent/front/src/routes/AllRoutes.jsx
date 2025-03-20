@@ -5,7 +5,8 @@ import {
     SeekerLogin,
     SeekerSignup,
     OwnerLogin,
-    OwnerSignup
+    OwnerSignup,
+    Details
   } from '../pages'
 
 const AllRoutes = () => {
@@ -13,6 +14,7 @@ const AllRoutes = () => {
     <>
     <Routes>
         <Route path='' element={<Home />} />
+        <Route path='details' element={<Details />} />
         <Route path='seeker/login' element={<SeekerLogin />} />
         <Route path='seeker/signup' element={<SeekerSignup />} />
         <Route path='owner/login' element={<OwnerLogin />} />

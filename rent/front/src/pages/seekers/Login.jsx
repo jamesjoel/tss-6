@@ -1,12 +1,46 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import {useFormik} from 'formik'
+import LoginSchema from '../../schema/LoginSchema';
+import {useNavigate} from 'react-router-dom'
+import axios from 'axios'
 
 const Login = () => {
+  let navigate = useNavigate();
+  let [errMsg, setErrMsg] = useState("");
+
   useEffect(()=>{
     window.scrollTo(0, 0);
   },[])
 
+  let loginFrm = useFormik({
+    validationSchema : LoginSchema,
+    initialValues : {
+      email : "",
+      password : ""
+    },
+    onSubmit : (formData)=>{
+      axios.post(`${import.meta.env.VITE_API_URL}/seekerauth`, formData)
+      .then(response=>{
+        console.log(response.data)
+        if(response.data.success==true){
+          navigate("/");
+        }else{
+          if(response.data.errType==1){
+            setErrMsg("This Email ID and Password is Incorrect !");
+          }
+          if(response.data.errType==2){
+            
+            setErrMsg("This Password is Incorrect !");
+          }
+        }
+      })
+    }
+  })
+
+
   return (
     <div className="container" style={{minHeight : "700px"}}>
+      <form onSubmit={loginFrm.handleSubmit}>
       <div className="row">
         <div className="col-md-6 offset-md-3 my-5">
           <div className="card">
@@ -20,19 +54,23 @@ const Login = () => {
                 <div className="col-12 mb-3">
                   <input
                     type="text"
-                    className="form-control"
+                    className={"form-control " + (loginFrm.errors.email && loginFrm.touched.email ? 'is-invalid' : '')}
                     placeholder="Email/Username"
+                    name='email'
+                    onChange={loginFrm.handleChange}
                   />
                 </div>
 
                 <div className="col-12 mb-3">
                   <input
                     type="password"
-                    className="form-control"
+                    className={"form-control " + (loginFrm.errors.password && loginFrm.touched.password ? 'is-invalid' : '')}
                     placeholder="Password"
+                    name='password'
+                    onChange={loginFrm.handleChange}
                   />
                 </div>
-                
+                <p className='text-danger text-center'>{errMsg}</p>
                 
                 
               </div>
@@ -46,10 +84,12 @@ const Login = () => {
                     className="btn btn-primary"
                   />
                 </div>
+                
             </div>
           </div>
         </div>
       </div>
+      </form>
     </div>
   )
 }
