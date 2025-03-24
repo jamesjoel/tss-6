@@ -14,6 +14,17 @@ const HeaderNew = () => {
                     <li className='nav-item'>
                         <NavLink className="nav-link px-4" to="/">Home</NavLink>
                     </li>
+                    {
+                        localStorage.getItem("owner-access-token")
+                        ?
+                        <li className='nav-item dropdown'>
+                        <a data-bs-toggle="dropdown" className="nav-link px-4 dropdown-toggle" href="#">{localStorage.getItem("owner-name")}</a>
+                        <div className='dropdown-menu'>
+                        <NavLink className="dropdown-item" to="/owner/my-account">My-Account</NavLink>
+                        <NavLink className="dropdown-item" to="/owner/logout">Logout</NavLink>
+                        </div>
+                    </li>
+                    :
                     <li className='nav-item dropdown'>
                         <a data-bs-toggle="dropdown" className="nav-link px-4 dropdown-toggle" href="#">Owner</a>
                         <div className='dropdown-menu'>
@@ -21,6 +32,7 @@ const HeaderNew = () => {
                             <NavLink className="dropdown-item" to="/owner/signup">Signup</NavLink>
                         </div>
                     </li>
+                    }
                     {
                         localStorage.getItem("access-token")
                         ?
