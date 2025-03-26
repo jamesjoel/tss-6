@@ -24,6 +24,7 @@ const AllRoutes = () => {
         <Route path='owner/signup' element={<OwnerSignup />} />
         <Route path='owner/logout' element={<OwnerLogout />} />
     </Routes>
+    
     </>
   )
 }

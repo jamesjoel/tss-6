@@ -54,7 +54,7 @@ const Header = () => {
                     
                     <span className="profile-username">
                       <span className="op-7">Hi,</span>
-                      <span className="fw-bold">Admin</span>
+                      <span className="fw-bold">{localStorage.getItem("name")}</span>
                     </span>
                   </a>
                   

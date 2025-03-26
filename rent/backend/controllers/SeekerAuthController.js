@@ -14,7 +14,7 @@ let SeekerAuth = async(req, res)=>{
         {
             let obj = {id : result[0]._id, email : result[0].email};
             // let a = sha1("james")
-            let token = jwt.sign(obj, "hello");
+            let token = jwt.sign(obj, process.env.ENC_KEY);
             res.send({success:true, token : token, name : result[0].name});
         }
         else{
