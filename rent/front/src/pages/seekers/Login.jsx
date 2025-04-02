@@ -3,6 +3,7 @@ import {useFormik} from 'formik'
 import LoginSchema from '../../schema/LoginSchema';
 import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
+import Slider from '../../components/Slider'
 
 const Login = () => {
   let navigate = useNavigate();
@@ -45,6 +46,8 @@ const Login = () => {
 
 
   return (
+    <>
+    <Slider />
     <div className="container" style={{minHeight : "700px"}}>
       <form onSubmit={loginFrm.handleSubmit}>
       <div className="row">
@@ -97,6 +100,7 @@ const Login = () => {
       </div>
       </form>
     </div>
+    </>
   )
 }
 

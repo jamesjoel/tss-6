@@ -3,6 +3,7 @@ import {useFormik} from 'formik'
 import LoginSchema from '../../schema/LoginSchema'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import Slider from '../../components/Slider'
 
 const Login = () => {
 
@@ -27,7 +28,7 @@ const Login = () => {
             }
             localStorage.setItem("owner-name", response.data.name);
             localStorage.setItem("owner-access-token", response.data.token);
-            navigate("/");
+            navigate("/owner/my-account");
           }else{
             if(response.data.errType==1){
               setErrMsg("This Username/Email and Password is Incorrect !")
@@ -43,6 +44,8 @@ const Login = () => {
 
 
   return (
+    <>
+    <Slider />
     <div className="container" style={{minHeight : "700px"}}>
       <form onSubmit={loginFrm.handleSubmit}>
       <div className="row">
@@ -98,6 +101,7 @@ const Login = () => {
       </div>
       </form>
     </div>
+    </>
   )
 }
 

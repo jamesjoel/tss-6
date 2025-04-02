@@ -1,8 +1,19 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
+import React, {useEffect} from 'react'
+import { Outlet, useNavigate } from 'react-router-dom'
 import Sidebar from '../components/Sidebar'
 import Header from '../components/Header'
+
 const ProtactedRoute = () => {
+  let navigate = useNavigate();
+  
+  useEffect(()=>{
+    if(! localStorage.getItem("access-token")){
+      navigate("/");
+    }
+
+  },[])
+
+
   return (
     <div className="wrapper">
       

@@ -7,6 +7,7 @@ import OwnerAdd from '../pages/owner/Add'
 import SeekerAdd from '../pages/seeker/Add'
 import SeekerList from '../pages/seeker/List'
 import Login from '../pages/Login'
+import Logout from '../pages/Logout'
 import ProtactedRoute from './ProtactedRoute'
 const AllRoutes = () => {
   return (
@@ -22,6 +23,7 @@ const AllRoutes = () => {
             <Route path='/owners/add' element={<OwnerAdd />} />
             <Route path='/seeker/add' element={<SeekerAdd />} />
             <Route path='/seeker/list' element={<SeekerList />} />
+            <Route path='/logout' element={<Logout />} />
 
         </Route>
     </Routes>

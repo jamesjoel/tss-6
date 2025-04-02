@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken'
 
 let OwnerAuth = async(req, res)=>{
     let {email, password} = req.body;
-    let result = await Owner.find({email : email});
+    let result = await Owner.find({email : email}); // array
     if(result.length == 1)
     {
         if(result[0].password == sha1(password))

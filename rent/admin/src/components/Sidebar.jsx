@@ -84,6 +84,14 @@ const Sidebar = () => {
                   </ul>
                 </div>
               </li>
+              <li className="nav-item">
+                <NavLink to="/logout">
+                  <i className="fas fa-layer-group"></i>
+                  <p>Logout</p>
+                  
+                </NavLink>
+                
+              </li>
               
             </ul>
           </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import SeekerSignupSchema from '../../schema/SeekerSignupSchema'
 import { useFormik } from 'formik'
-
+import Slider from '../../components/Slider'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify'
@@ -32,6 +32,8 @@ const Signup = () => {
   })
   
   return (
+    <>
+    <Slider />
     <div className="container" style={{minHeight : "700px"}}>
       <ToastContainer theme="dark" />
   
@@ -148,6 +150,7 @@ const Signup = () => {
       </div>
       </form>
     </div>
+    </>
   )
 }
 

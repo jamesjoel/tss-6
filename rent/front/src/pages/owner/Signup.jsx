@@ -3,6 +3,7 @@ import OwnerSignupSchema from '../../schema/OwnerSignupSchema'
 import {useFormik} from 'formik'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import Slider from '../../components/Slider'
 
 const Signup = () => {
   let navigate = useNavigate();
@@ -27,6 +28,8 @@ const Signup = () => {
 
 
   return (
+    <>
+    <Slider />
     <div className="container" style={{minHeight : "700px"}}>
       <form onSubmit={signupFrm.handleSubmit}>
       <div className="row">
@@ -128,6 +131,7 @@ const Signup = () => {
       </div>
       </form>
     </div>
+    </>
   )
 }
 

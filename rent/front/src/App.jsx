@@ -10,7 +10,7 @@ const App = () => {
     <>
         {/* <Header /> */}
         <HeaderNew />
-        <Slider />
+        {/* <Slider /> */}
         <AllRoutes />
         <Footer />
     </>

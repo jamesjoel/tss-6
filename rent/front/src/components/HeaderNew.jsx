@@ -39,7 +39,7 @@ const HeaderNew = () => {
                         <li className='nav-item dropdown'>
                         <a data-bs-toggle="dropdown" className="nav-link px-4 dropdown-toggle" href="#">{localStorage.getItem("name")}</a>
                         <div className='dropdown-menu'>
-                            <NavLink className="dropdown-item" to="/seeker/my-account">My-Account</NavLink>
+                            <NavLink className="dropdown-item" to="/seeker/my-profile">My-Profile</NavLink>
                             <NavLink className="dropdown-item" to="/seeker/logout">Logout</NavLink>
                         </div>
                     </li>
