@@ -3,8 +3,10 @@ import OwnerSideBar from '../../components/OwnerSideBar'
 import {useFormik} from 'formik'
 import PropertySchema from '../../schema/PropertySchema'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const AddNew = () => {
+  let navigate = useNavigate();
   let propFrm = useFormik({
     validationSchema : PropertySchema,
     initialValues : {
@@ -20,7 +22,8 @@ const AddNew = () => {
         headers : {Authorization : localStorage.getItem("owner-access-token")}
       })
       .then(response=>{
-        console.log(response.data)
+        // console.log(response.data)
+        navigate("/owner/my-property");
       })
     }
   })

@@ -54,10 +54,12 @@ const Home = () => {
                           <span className="city d-block mb-3">{item.title}</span>
     
                           <div className="specs d-flex mb-4">
+                            <div className='row'>
+                              <div className='col-md-12'>
                             {
                               item.amenity.map(item2=>{
                                 return(
-                                  <span className="d-flex align-items-center me-3">
+                                  <span className="amenity-text me-3">
                                      {
                                       item2 == "Parking" 
                                       ?
@@ -83,17 +85,18 @@ const Home = () => {
                                       ''
 
                                      } 
-                                  &nbsp;<span className="caption">{item2}</span>
+                                  &nbsp;<span className="">{item2}</span>
                                 </span>
                                 )
                               })
                             }
-                            
+                            </div>
+                            </div>
                             
                           </div>
     
                           <NavLink
-                            to="/details"
+                            to={"/details/"+item._id}
                             className="btn btn-primary py-2 px-3"
                             >See details</NavLink>
                         </div>

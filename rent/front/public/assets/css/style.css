@@ -5829,6 +5829,12 @@ textarea.form-control-lg {
 
 .ratio-21x9 {
   --bs-aspect-ratio: calc(9 / 21 * 100%); }
+.amenity-text{
+  font-size: 13px;
+}
+
+
+
 
 .fixed-top {
   position: absolute;
@@ -9892,6 +9898,9 @@ textarea {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; }
 
+  .property-item{
+    
+  }
 .property-item.mb-30 {
   margin-bottom: 30px; }
 
@@ -9900,6 +9909,7 @@ textarea {
   z-index: 1; }
 
 .property-item .property-content {
+  min-height: 300px;
   background: #fff;
   padding: 30px;
   font-size: 13px;

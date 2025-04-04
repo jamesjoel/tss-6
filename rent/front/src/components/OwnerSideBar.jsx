@@ -14,7 +14,7 @@ const OwnerSideBar = () => {
           <NavLink to='/owner/add-new-property' className='nav-link'>Add New <i class="fa fa-angle-right" aria-hidden="true"></i></NavLink>
         </li>
         <li className='nav-item'>
-          <a href='' className='nav-link'>Current Properties  <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+        <NavLink to='/owner/my-property' className='nav-link'>My Property <i class="fa fa-angle-right" aria-hidden="true"></i></NavLink>
         </li>
         <li className='nav-item'>
           <a href='' className='nav-link'>Rent-Out  <i class="fa fa-angle-right" aria-hidden="true"></i></a>
