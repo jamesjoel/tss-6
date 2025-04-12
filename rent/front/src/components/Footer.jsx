@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -24,8 +25,8 @@ const Footer = () => {
           <div className="widget">
             <h3>Sources</h3>
             <ul className="list-unstyled float-start links">
-              <li><a href="#">About us</a></li>
-              <li><a href="#">Services</a></li>
+              <li><NavLink to="/about">About us</NavLink></li>
+              <li><NavLink to="/contact">Contact</NavLink></li>
               <li><a href="#">Vision</a></li>
               <li><a href="#">Mission</a></li>
               <li><a href="#">Terms</a></li>

@@ -1,5 +1,5 @@
 {
-  "name": "front",
+  "name": "react4",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,15 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "axios": "^1.8.2",
-    "bootstrap": "^5.3.5",
-    "formik": "^2.4.6",
     "react": "^19.0.0",
-    "react-bootstrap": "^2.10.9",
     "react-dom": "^19.0.0",
-    "react-router-dom": "^7.3.0",
-    "react-toastify": "^11.0.5",
-    "yup": "^1.6.1"
+    "react-router-dom": "^7.5.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",

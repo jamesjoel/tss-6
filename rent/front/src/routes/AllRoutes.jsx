@@ -16,12 +16,16 @@ import MyAccount from '../pages/owner/MyAccount'
 import OwerProtactedRoutes from './OwerProtactedRoutes'
 import AddNew from '../pages/owner/AddNew'
 import MyProperty from '../pages/owner/MyProperty'
+import About from '../pages/About'
+import Contact from '../pages/Contact'
 
 const AllRoutes = () => {
   return (
     <>
     <Routes>
         <Route path='' element={<Home />} />
+        <Route path='about' element={<About />} />
+        <Route path='contact' element={<Contact />} />
         <Route path='details/:id' element={<Details />} />
         <Route path='seeker/login' element={<SeekerLogin />} />
         <Route path='' element={<SeekerProtactedRoutes />}>

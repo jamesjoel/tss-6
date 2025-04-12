@@ -9,6 +9,7 @@ import SeekerList from '../pages/seeker/List'
 import Login from '../pages/Login'
 import Logout from '../pages/Logout'
 import ProtactedRoute from './ProtactedRoute'
+import ViewProperty from '../pages/owner/ViewProperty'
 const AllRoutes = () => {
   return (
     <>
@@ -19,6 +20,7 @@ const AllRoutes = () => {
         <Route path='' element={<ProtactedRoute />}>
 
             <Route path='/dashboard' element={<Dashboard />} />
+            <Route path='/view-property/:id' element={<ViewProperty />} />
             <Route path='/owners/list' element={<OwnerList />} />
             <Route path='/owners/add' element={<OwnerAdd />} />
             <Route path='/seeker/add' element={<SeekerAdd />} />

@@ -31,6 +31,14 @@ let getAllProperty = async(req, res)=>{
     res.send(result);
 }
 
+let getAllPropertyByOwnerAdmin = async(req, res)=>{
+    
+    let ownerid = req.params.id;
+    let result = await Prop.find({owner_id : ownerid});
+    res.send(result);
+}
+
+
 let getAllPropertyByOwner = async(req, res)=>{
     if(req.headers.authorization)
     {
@@ -60,7 +68,7 @@ let getAllPropertyById = async(req, res)=>{
     res.send(result);
 }
 
-export {SaveProperty,getAllPropertyById, getAllPropertyWithOwner, getAllProperty, getAllPropertyByOwner}
+export {SaveProperty,getAllPropertyById, getAllPropertyByOwnerAdmin, getAllPropertyWithOwner, getAllProperty, getAllPropertyByOwner}
 /*
     CLIENT       SERVER
 */

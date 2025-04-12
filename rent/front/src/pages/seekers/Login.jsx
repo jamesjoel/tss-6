@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import {useFormik} from 'formik'
 import LoginSchema from '../../schema/LoginSchema';
-import {useNavigate} from 'react-router-dom'
+import {NavLink, useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import Slider from '../../components/Slider'
+import Button from 'react-bootstrap/Button'
 
 const Login = () => {
   let navigate = useNavigate();
@@ -55,6 +56,7 @@ const Login = () => {
           <div className="card">
             <div className="card-header bg-green">
               <h4 className='text-light'>Login</h4>
+              <small className='text-light'>If You are new then <NavLink to="/seeker/signup" className='text-light'>Signup Here</NavLink></small>
             </div>
             <div className="card-body">
             
@@ -87,11 +89,12 @@ const Login = () => {
             </div>
             <div className="card-footer">
             <div className="col-12">
-                  <input
+                  {/* <input
                     type="submit"
                     value="Login"
                     className="btn btn-primary"
-                  />
+                  /> */}
+                  <Button type='submit'>Login</Button>
                 </div>
                 
             </div>

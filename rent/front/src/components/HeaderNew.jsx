@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 const HeaderNew = () => {
   return (
-    <div className="container  fixed-top" style={{top : "20px"}}>
+    <div className="container " style={{top : "20px", position : "absolute", left : 0, right : 0, marginLeft : 'auto', marginRight : "auto", zIndex : '111'}}>
         <nav className='navbar navbar-expand-sm navbar-dark bg-green p-4' style={{borderRadius : "10px"}}>
             <NavLink className="navbar-brand" style={{fontSize : "28px"}} to='/'>Study-Hive</NavLink>
             <button className='navbar-toggler' data-bs-toggle="collapse" data-bs-target="#menu">
