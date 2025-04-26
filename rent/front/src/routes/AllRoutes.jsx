@@ -18,6 +18,8 @@ import AddNew from '../pages/owner/AddNew'
 import MyProperty from '../pages/owner/MyProperty'
 import About from '../pages/About'
 import Contact from '../pages/Contact'
+import Messages from '../pages/owner/Messages'
+import EditProfile from '../pages/seekers/EditProfile'
 
 const AllRoutes = () => {
   return (
@@ -31,6 +33,7 @@ const AllRoutes = () => {
         <Route path='' element={<SeekerProtactedRoutes />}>
 
           <Route path='seeker/my-profile' element={<MyProfile />} />
+          <Route path='seeker/edit-profile' element={<EditProfile />} />
           <Route path='seeker/logout' element={<SeekerLogout />} />
         
         </Route>
@@ -40,6 +43,7 @@ const AllRoutes = () => {
 
         <Route path='' element={<OwerProtactedRoutes />}>
 
+            <Route path='owner/messages/:id' element={<Messages />} />
             <Route path='owner/my-property' element={<MyProperty />} />
             <Route path='owner/add-new-property' element={<AddNew />} />
             <Route path='owner/my-account' element={<MyAccount />} />

@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
+import {NavLink} from 'react-router-dom'
 
 const MyProfile = () => {
 
@@ -26,12 +27,23 @@ const MyProfile = () => {
             <ul className='nav flex-column'>
               
               <li className='nav-item'>
-                <a href='' className='nav-link'>Enquiries  <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                <NavLink to='/' className='nav-link'>Enquiries  <i class="fa fa-angle-right" aria-hidden="true"></i></NavLink>
+              </li>
+              <li className='nav-item'>
+                <NavLink to='/seeker/my-profile' className='nav-link'>My Profile  <i class="fa fa-angle-right" aria-hidden="true"></i></NavLink>
+              </li>
+              <li className='nav-item'>
+                <NavLink to='/seeker/edit-profile' className='nav-link'>Edit Profile  <i class="fa fa-angle-right" aria-hidden="true"></i></NavLink>
+              </li>
+              <li className='nav-item'>
+                <NavLink to='/seeker/update-password' className='nav-link'>Update Password  <i class="fa fa-angle-right" aria-hidden="true"></i></NavLink>
+              </li>
+              <li className='nav-item'>
+                <NavLink to='/seeker/logout' className='nav-link'>Logout  <i class="fa fa-angle-right" aria-hidden="true"></i></NavLink>
               </li>
               
-              <li className='nav-item'>
-                <a href='' className='nav-link'>Logout  <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-              </li>
+              
+             
             </ul>
           </div>
         </div>

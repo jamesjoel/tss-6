@@ -37,6 +37,10 @@ const Login = () => {
               setErrMsg("This Password is Incorrect !")
               
             }
+            if(response.data.errType==3){
+              setErrMsg("You are Deactivated Owner, Please Contact Our Team")
+              
+            }
           }
         })
     }

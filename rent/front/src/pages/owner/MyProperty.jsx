@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import OwnerSideBar from '../../components/OwnerSideBar'
 import axios from 'axios'
+import { NavLink } from 'react-router-dom';
 
 const MyProperty = () => {
     let [allProp, setAllProp] = useState([]);
@@ -32,6 +33,7 @@ const MyProperty = () => {
                 <th>Title</th>
                 <th>Rent</th>
                 <th>Type</th>
+                <th>Messages</th>
               </tr>
             </thead>
             <tbody>
@@ -41,6 +43,7 @@ const MyProperty = () => {
                         <td>{item.title}</td>
                         <td>{item.rent}</td>
                         <td>{item.property_type}</td>
+                        <td><NavLink to={`/owner/messages/${item._id}`} className='btn btn-sm btn-info'>Messsage</NavLink></td>
                     </tr>)
                 }
             </tbody>

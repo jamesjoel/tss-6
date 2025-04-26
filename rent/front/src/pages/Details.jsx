@@ -27,6 +27,7 @@ const Details = () => {
 
     let [ownername, setOwnername] = useState("");
     let [ownernum, setOwnernum] = useState("")
+    let [advMoney, setAdvMoney] = useState("");
 
 
     let id = param.id;
@@ -38,6 +39,7 @@ const Details = () => {
 
             setOwnername(response.data[0].owner_id.name)
             setOwnernum(response.data[0].owner_id.contact);
+            setAdvMoney(response.data[0].advance_money);
         })
     },[])
 
@@ -47,18 +49,32 @@ const Details = () => {
     }
 
     let sendMsg = ()=>{
-        axios.post(`${import.meta.env.VITE_API_URL}/message`, 
+        axios.post(`${import.meta.env.VITE_API_URL}/message/order`, 
             { 
                 message : msg, 
                 seeker_token : localStorage.getItem("access-token"),
                 property_id : property._id,
-                owner_id : property.owner_id._id
+                owner_id : property.owner_id._id,
+                amount : advMoney
             }
         )
         .then(response=>{
-            // console.log(response.data);
             setShowMsg(false);
             setMsg("");
+            if(response.data.success==true){
+                let option = {
+                    key : "rzp_test_r9QcVPwqwQUWB9",
+                    amount : advMoney*100,
+                    currency : 'INR',
+                    order_id : response.data.orderId,
+                    handler : (rzpyRes)=>{
+                        console.log(rzpyRes);
+                    },
+                    theme : "#004512"
+                };
+                const rzpy = window.Razorpay(option);
+                rzpy.open();
+            }
         })
     }
 
@@ -97,7 +113,7 @@ const Details = () => {
         </Modal.Body>
         <Modal.Footer>
             <Button variant='danger' onClick={()=>setShowMsg(false)}>Close</Button>
-            <Button disabled={btnDisable} variant='success' onClick={sendMsg}>Send</Button>
+            <Button disabled={btnDisable} variant='success' onClick={sendMsg}>Pay Now</Button>
         </Modal.Footer>
     </Modal>
     <div className="container my-5" style={{top : "100px", position : "relative", minHeight : "700px"}}>
@@ -110,7 +126,7 @@ const Details = () => {
 
                    <div className='row'>
                     <div className='col-md-5'>
-                        <img src='/assets/images/img_7.jpg' className='img-thumbnail'/>
+                        <img src={`http://localhost:3000/upload_images/${property.image}`} className='img-thumbnail'/>
                     </div>
                     <div className='col-md-7'>
                         <div className='px-2 py-3 bg-dark'>
@@ -143,6 +159,10 @@ const Details = () => {
                                                 ?
                                                 <span>&nbsp;&nbsp;<i class="fa fa-adjust" aria-hidden="true"></i> {item}</span>
                                                 :
+                                                item=="Water"
+                                                ?
+                                                <span>&nbsp;&nbsp;<i class="fa fa-tint" aria-hidden="true"></i> {item}</span>
+                                                :
                                                 ''
                                             }
                                         </>                                     
@@ -174,10 +194,11 @@ const Details = () => {
                     <h3>Owner Contact</h3>
                     <p><b>Owner Name</b> { localStorage.getItem("access-token") ? ownername : '---'}</p>
                     <p><b>Owner Contact</b> + {localStorage.getItem("access-token") ? ownernum : '000'}</p>
+                    <p><b>Advance Booking Amount</b>  {localStorage.getItem("access-token") ? advMoney : '---'}</p>
                     {
                         localStorage.getItem("access-token")
                         ?
-                        <button onClick={()=>setShowMsg(true)} className='btn btn-success btn-sm'>Message To Owner</button>
+                        <button onClick={()=>setShowMsg(true)} className='btn btn-success btn-sm'>Message & Pay to Owner</button>
                         :
                         <button onClick={()=>setShow(true)} className='btn btn-info btn-sm'>Contact Owner</button>
 

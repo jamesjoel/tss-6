@@ -9,6 +9,7 @@ import { ToastContainer, toast } from 'react-toastify'
 
 const Signup = () => {
   let navigate = useNavigate();
+  
   let signupFrm = useFormik({
     validationSchema : SeekerSignupSchema,
     initialValues : {
@@ -21,6 +22,7 @@ const Signup = () => {
       gender : ""
     },
     onSubmit : (formData)=>{
+      // { name : "rohit", email : "" }
       axios.post(`${import.meta.env.VITE_API_URL}/seeker`, formData)
       .then(response=>{
         toast("Your Registration Successful....", {onClose : ()=>{
