@@ -6,9 +6,10 @@ let PropSchema = mongoose.Schema({
     address : String,
     property_type : String,
     rent : Number,
-    // image : String,
+    image : String,
     deposite : { type : Number, default : 0 },
-    amenity : []
+    amenity : [],
+    advance_money : Number
 }, {timestamps : true})
 
 let Prop = mongoose.model("property", PropSchema)

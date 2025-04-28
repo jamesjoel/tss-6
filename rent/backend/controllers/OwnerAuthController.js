@@ -9,9 +9,15 @@ let OwnerAuth = async(req, res)=>{
     {
         if(result[0].password == sha1(password))
         {
-            let obj = { id : result[0]._id };
-            let token = jwt.sign(obj, process.env.ENC_KEY);            
-            res.send({success:true, token:token, name:result[0].name});
+            if(result[0].status==1){
+
+                let obj = { id : result[0]._id };
+                let token = jwt.sign(obj, process.env.ENC_KEY);            
+                res.send({success:true, token:token, name:result[0].name});
+            }else{
+
+                res.send({success:false, errType : 3});
+            }
         }
         else{
             res.send({success:false, errType : 2});

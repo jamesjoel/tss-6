@@ -6,6 +6,7 @@ let OwnerSchema = mongoose.Schema({
     password : String,
     address : String,
     contact : String,
+    status : { type : Number, default : 1 },
 }, {timestamps:true})
 
 let Owner = mongoose.model("owner", OwnerSchema);

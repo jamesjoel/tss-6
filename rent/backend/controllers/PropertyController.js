@@ -1,6 +1,18 @@
 import Prop from '../models/Property.js'
 import jwt from 'jsonwebtoken'
+import path from 'path'
 let SaveProperty = async(req, res)=>{
+    
+    let photo = req.files.photo;
+    req.body.image = photo.name;
+    req.body.amenity = req.body.amenity.split(",");
+    // red, green, blue   --- ["red", "green", "blue"]
+
+    
+    
+    
+
+
     if(req.body.deposite==''){
         delete req.body.deposite;
     }
@@ -14,6 +26,7 @@ let SaveProperty = async(req, res)=>{
         if(obj){
             let id = obj.id;
             req.body.owner_id = id;
+            await photo.mv(path.resolve()+"/assets/upload_images/"+photo.name);
             await Prop.create(req.body);
             res.send({success:true});
         }else{

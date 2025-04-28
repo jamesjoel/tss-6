@@ -16,4 +16,21 @@ let SeekerProfile = async(req, res)=>{
     }
 }
 
-export {SeekerProfile}
+let EditSeekerProfile = async(req, res)=>{
+    if(req.headers.authorization){
+        let token = req.headers.authorization;
+        let obj = jwt.decode(token, process.env.ENC_KEY);
+        if(obj){
+            let id = obj.id;
+            let result = await Seeker.updateMany({_id : id}, req.body);
+            res.send({success:true});
+        }else{
+            res.send({success:false});
+        }
+    }
+    else{
+        res.send({success:false});
+    }
+}
+
+export {SeekerProfile, EditSeekerProfile}
