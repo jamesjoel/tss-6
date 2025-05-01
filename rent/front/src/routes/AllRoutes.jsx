@@ -20,6 +20,8 @@ import About from '../pages/About'
 import Contact from '../pages/Contact'
 import Messages from '../pages/owner/Messages'
 import EditProfile from '../pages/seekers/EditProfile'
+import UpdatePass from '../pages/seekers/UpdatePass'
+import ForgotPassword from '../pages/seekers/ForgotPassword'
 
 const AllRoutes = () => {
   return (
@@ -30,9 +32,11 @@ const AllRoutes = () => {
         <Route path='contact' element={<Contact />} />
         <Route path='details/:id' element={<Details />} />
         <Route path='seeker/login' element={<SeekerLogin />} />
+        <Route path='seeker/forgot-password' element={<ForgotPassword />} />
         <Route path='' element={<SeekerProtactedRoutes />}>
 
           <Route path='seeker/my-profile' element={<MyProfile />} />
+          <Route path='seeker/update-password' element={<UpdatePass />} />
           <Route path='seeker/edit-profile' element={<EditProfile />} />
           <Route path='seeker/logout' element={<SeekerLogout />} />
         

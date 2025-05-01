@@ -1,9 +1,12 @@
 import React, {useEffect, useState} from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { useFormik } from 'formik'
 
 const EditProfile = () => {
+
+  let navigate = useNavigate()
+
     let [seeker, setSeeker] = useState({
         name : "",
       email : "",
@@ -33,7 +36,8 @@ const EditProfile = () => {
             headers : {Authorization : localStorage.getItem("access-token")}
         })
         .then(response=>{
-            console.log(response.data);
+            // console.log(response.data);
+            navigate("/seeker/my-profile")
         })
     }
   })

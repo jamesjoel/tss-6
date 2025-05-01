@@ -13,13 +13,16 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@getbrevo/brevo": "^2.2.0",
     "concurrently": "^9.1.2",
     "cors": "^2.8.5",
     "express": "^4.21.2",
     "express-fileupload": "^1.5.1",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.10.2",
+    "nodemailer": "^6.10.1",
     "razorpay": "^2.9.6",
-    "sha1": "^1.1.1"
+    "sha1": "^1.1.1",
+    "string-random": "^0.1.3"
   }
 }

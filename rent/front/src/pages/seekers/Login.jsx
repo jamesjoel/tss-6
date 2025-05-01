@@ -81,6 +81,12 @@ const Login = () => {
                     onChange={loginFrm.handleChange}
                   />
                 </div>
+                <div className="col-md-12">
+                  <p className='text-center'>
+                  <NavLink to='/seeker/forgot-password'>Forgot Password</NavLink>
+
+                  </p>
+                </div>
                 <p className='text-danger text-center'>{errMsg}</p>
                 
                 
