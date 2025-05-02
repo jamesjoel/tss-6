@@ -1,18 +1,9 @@
 import Seeker from '../models/Seeker.js'
 import jwt from 'jsonwebtoken'
 import sha1 from 'sha1'
-import nodemailer from 'nodemailer';
-import rand from 'string-random'
 
-let transporter = nodemailer.createTransport({
-    host : "smtp-relay.brevo.com",
-    port : 587,
-    secure : false,
-    auth : {
-        user : "870885002@smtp-brevo.com",
-        pass : "QH8dFVscj19GwK7B"
-    }
-})
+import rand from 'string-random'
+import SendMail from '../helpers/SendMail.js'
 
 
 let SeekerProfile = async(req, res)=>{
@@ -79,53 +70,50 @@ let getOtp = async(req, res)=>{
     if(result.length == 1){
         
         let otp = rand(6, {letters: false});
-
-        let mailOpt = {
-            from : "james.steppingstone@gmail.com",
-            to : "james.steppingstone@gmail.com",
-            subject : "OTP for Reset Password",
-            html : `<style>
-  
-  .container { width: 600px; margin: 20px auto; padding: 20px; border: 1px solid #ddd; }
-  .header { text-align: center; padding-bottom: 20px; border-bottom: 1px solid #eee; }
-  .logo { width: 100px; }
-  .content { padding: 20px; }
-  .otp { text-align: center; font-size: 24px; font-weight: bold; }
-  .footer { text-align: center; font-size: 0.8em; color: #777; padding-top: 20px; }
-  </style>
-  <div class="container">
-    <div class="header">
-      <img src="your-logo.png" alt="Your Logo" class="logo">
-      <h1>OTP Verification</h1>
+        await SendMail(result[0].email, 'OTP for Reset Password', `<div style="width: 600px; margin: 20px auto; padding: 20px; border: 1px solid #ddd;">
+    <div style="text-align: center; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+      <h1 style="color : #005555; font-weight : 'bold'; text-shadow: 2px 2px 2px #000;">Study-Hive</h1>
+      <h2>OTP Verification</h2>
     </div>
-    <div class="content">
+    <div style="padding: 20px;">
       <p>Hi,</p>
-      <p>To verify your account, please use the following One-Time Password ${otp}:</p>
-      <div class="otp">
-        <!-- Replace with the actual OTP -->
+      <p>To verify your account, please use the following One-Time Password ${otp}</p>
+      <div style="text-align: center; font-size: 24px; font-weight: bold;">
+        
         ${otp}
       </div>
       <p>This OTP is valid for 5 minutes. If you did not request this verification, please ignore this email.</p>
       <p>Thank you,</p>
       <p>The Study-Hive Team</p>
     </div>
-    <div class="footer">
+    <div style="text-align: center; font-size: 0.8em; color: #777; padding-top: 20px;">
       &copy; 2025 Your Company. All rights reserved.
-    </div>`
-        }
-
-        transporter.sendMail(mailOpt, async(err, info)=>{
-            if(err){
-                console.log("---------", err)
-            }
-            else{
-                console.log(info);
-            }
-        })
+    </div>`);
+    await Seeker.updateMany({_id : result[0]._id} , {otp : otp})
+    res.send({success:true});
 
     }else{
         res.send({success:false});
     }
 }
 
-export {SeekerProfile,getOtp, EditSeekerProfile, updatePass}
+let checkOtp = async(req, res)=>{
+    let otp = req.body.otp;
+    let result = await Seeker.find({otp:otp});
+    if(result.length==1){
+
+        res.send({success:true, userid : result[0]._id, email : result[0].email});
+    }
+    else{
+        res.send({success:false});
+    }
+}
+
+let changePass = async(req, res)=>{
+    // console.log(req.body);
+    let id = req.body.userid;
+    await Seeker.updateMany({_id : id }, {password : sha1(req.body.password)});
+    res.send({success:true});
+}
+
+export {SeekerProfile,getOtp, EditSeekerProfile, updatePass, checkOtp, changePass}

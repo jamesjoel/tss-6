@@ -2,20 +2,27 @@ import React, { useState } from 'react'
 import Slider from '../../components/Slider'
 import { useFormik } from 'formik'
 import axios from 'axios'
-
+import {useNavigate} from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify'
 
 const ForgotPassword = () => {
-
+    let navigate = useNavigate();
+    let [showPreeLoader, setShowPreloader] = useState(false);
     let [errMsg, setErrMsg] = useState("");
     let forgotFrm = useFormik({
         initialValues : {
             username : ""
         },
         onSubmit : (formData)=>{
+            setShowPreloader(true);
             axios.post(`${import.meta.env.VITE_API_URL}/seekerprofile/getotp`, formData)
             .then(response=>{
+                setShowPreloader(false);
                 if(response.data.success==true){
-
+                    toast("OTP Send to your Mail Id....", {onClose : ()=>{
+                    
+                              navigate("/seeker/otp")
+                            }});
                 }else{
                     setErrMsg("This Username/Email does not exists !");
                 }
@@ -26,6 +33,7 @@ const ForgotPassword = () => {
   return (
     <>
     <Slider />
+    <ToastContainer theme="dark" />
     <div className="container" style={{minHeight : "700px"}}>
         <form onSubmit={forgotFrm.handleSubmit}>
         <div className='row'>
@@ -43,7 +51,7 @@ const ForgotPassword = () => {
                 </div>
             </div>
             <div className="card-footer">
-                <button type='submit' className='btn btn-primary'>Get OTP</button>
+                <button type='submit' className='btn btn-primary'>Get OTP {showPreeLoader ? <span className='spinner-border spinner-border-sm'></span> : ''} </button>
             </div>
             </div>
             </div>

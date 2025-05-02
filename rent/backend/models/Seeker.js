@@ -7,6 +7,7 @@ let SeekerSchema = mongoose.Schema({
     address : String,
     contact : String,
     gender : String,
+    otp : { type : Number, default : null }
 }, {timestamps:true})
 
 let Seeker = mongoose.model("seeker", SeekerSchema);

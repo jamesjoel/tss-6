@@ -22,6 +22,8 @@ import Messages from '../pages/owner/Messages'
 import EditProfile from '../pages/seekers/EditProfile'
 import UpdatePass from '../pages/seekers/UpdatePass'
 import ForgotPassword from '../pages/seekers/ForgotPassword'
+import Otp from '../pages/seekers/Otp'
+import ChangePassword from '../pages/seekers/ChangePassword'
 
 const AllRoutes = () => {
   return (
@@ -33,6 +35,8 @@ const AllRoutes = () => {
         <Route path='details/:id' element={<Details />} />
         <Route path='seeker/login' element={<SeekerLogin />} />
         <Route path='seeker/forgot-password' element={<ForgotPassword />} />
+        <Route path='seeker/otp' element={<Otp />} />
+        <Route path='seeker/change-password' element={<ChangePassword />} />
         <Route path='' element={<SeekerProtactedRoutes />}>
 
           <Route path='seeker/my-profile' element={<MyProfile />} />
