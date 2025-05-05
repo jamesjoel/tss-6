@@ -24,6 +24,7 @@ import UpdatePass from '../pages/seekers/UpdatePass'
 import ForgotPassword from '../pages/seekers/ForgotPassword'
 import Otp from '../pages/seekers/Otp'
 import ChangePassword from '../pages/seekers/ChangePassword'
+import PaymetConfirm from '../pages/seekers/PaymetConfirm'
 
 const AllRoutes = () => {
   return (
@@ -39,6 +40,7 @@ const AllRoutes = () => {
         <Route path='seeker/change-password' element={<ChangePassword />} />
         <Route path='' element={<SeekerProtactedRoutes />}>
 
+          <Route path='seeker/payment-confirm' element={<PaymetConfirm />} />
           <Route path='seeker/my-profile' element={<MyProfile />} />
           <Route path='seeker/update-password' element={<UpdatePass />} />
           <Route path='seeker/edit-profile' element={<EditProfile />} />
