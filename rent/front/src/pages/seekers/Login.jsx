@@ -5,8 +5,11 @@ import {NavLink, useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import Slider from '../../components/Slider'
 import Button from 'react-bootstrap/Button'
+import AlertBox from '../../components/AlertBox'
 
 const Login = () => {
+  let [x, setX] = useState(false);
+
   let navigate = useNavigate();
   let [errMsg, setErrMsg] = useState("");
 
@@ -48,6 +51,8 @@ const Login = () => {
 
   return (
     <>
+
+    <AlertBox show={x} title="Message" lable="Forgot Password" body="Are you sure go to the forgot password page" closeAlert={setX} nav="/seeker/forgot-password" />
     <Slider />
     <div className="container" style={{minHeight : "700px"}}>
       <form onSubmit={loginFrm.handleSubmit}>
@@ -83,7 +88,8 @@ const Login = () => {
                 </div>
                 <div className="col-md-12">
                   <p className='text-center'>
-                  <NavLink to='/seeker/forgot-password'>Forgot Password</NavLink>
+                  {/* <NavLink to='/seeker/forgot-password'>Forgot Password</NavLink> */}
+                  <button onClick={()=>setX(true)} type='button' className='btn btn-link'>Forgot Password</button>
 
                   </p>
                 </div>
