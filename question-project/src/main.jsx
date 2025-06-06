@@ -7,7 +7,8 @@ import { Provider } from 'react-redux'
 import { configureStore, combineReducers} from '@reduxjs/toolkit'
 import QueReducer from './redux/QueSlice'
 import SortedQueReducer from './redux/SortedQueSlice'
-const rootReducer = combineReducers({QueReducer, SortedQueReducer})
+import AnsReducer from './redux/AnsSlice'
+const rootReducer = combineReducers({QueReducer, SortedQueReducer, AnsReducer})
 
 const store = configureStore({
   reducer : rootReducer
